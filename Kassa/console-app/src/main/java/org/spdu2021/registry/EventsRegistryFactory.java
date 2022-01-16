@@ -1,7 +1,7 @@
 package org.spdu2021.registry;
 
 import org.spdu2021.registry.ui.auto.AutoEventsReader;
-import org.spdu2021.registry.ui.auto.AutoPlacesReader;
+import org.spdu2021.registry.ui.auto.AutoSalesReader;
 
 public class EventsRegistryFactory {
 
@@ -9,8 +9,10 @@ public class EventsRegistryFactory {
 
         return new EventsRegistry(
                 new AutoEventsReader(),
-                new AutoPlacesReader(),
-                new CommonEventsPlacesPrinter()
+                new CommonEventsPrinter(),
+
+                new AutoSalesReader(),
+                new CommonSalesPrinter()
                 );
     }
 }

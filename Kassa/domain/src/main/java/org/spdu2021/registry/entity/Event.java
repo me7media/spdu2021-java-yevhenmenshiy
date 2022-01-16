@@ -8,11 +8,13 @@ public class Event implements Serializable {
 
     private final String name;
     private final int places;
+    private final int price;
     private final LocalDateTime date;
 
-    public Event(String name, int places, LocalDateTime date) {
+    public Event(String name, int places, int price, LocalDateTime date) {
         this.name = name;
         this.places = places;
+        this.price = price;
         this.date = date;
     }
 
@@ -22,6 +24,10 @@ public class Event implements Serializable {
 
     public int getPlaces() {
         return places;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public LocalDateTime getDate() {
@@ -40,6 +46,7 @@ public class Event implements Serializable {
         Event event = (Event) o;
         return Objects.equals(name, event.name)
                 && Objects.equals(places, event.places)
+                && Objects.equals(price, event.price)
                 && Objects.equals(date, event.date);
     }
 
@@ -53,6 +60,7 @@ public class Event implements Serializable {
         return "Event{" +
                 "name='" + name + '\'' +
                 ", places=" + places +
+                ", price=" + price +
                 ", date=" + date +
                 '}';
     }

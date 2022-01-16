@@ -3,7 +3,9 @@ package org.spdu2021.registry.ui.auto;
 import org.spdu2021.registry.entity.Event;
 import org.spdu2021.registry.ui.EventsReader;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,20 +42,34 @@ public class AutoEventsReader implements EventsReader {
             String name = randomName();
 
             int places = randomPlaces();
-            LocalDateTime date = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
+            int price = randomPrice();
 
-            events.add(new Event(name, places, date));
+            LocalDateTime date = randomDate();
+
+            events.add(new Event(name, places, price, date));
         }
     }
 
     private String randomName() {
         int i = random.nextInt(names.length);
         int j = random.nextInt(alfabet.length);
-        return names[i] + " " + alfabet[j] +".";
+        return names[i] + " " + alfabet[j];
     }
 
     private int randomPlaces() {
         return random.nextInt(100);
+    }
+
+    private int randomPrice() {
+        return random.nextInt(100);
+    }
+
+    private LocalDateTime randomDate() {
+        LocalDate start = LocalDate.now();
+        LocalDate randomDate = start.plusDays(new Random().nextInt((int) 1000));
+        LocalTime time = LocalTime.of(random.nextInt(24), random.nextInt(60), 0);
+        LocalDateTime date = LocalDateTime.of(randomDate, time).truncatedTo(ChronoUnit.SECONDS);
+        return date;
     }
 
     private int randomEventsCount() {
