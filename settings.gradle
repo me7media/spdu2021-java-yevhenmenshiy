@@ -1,0 +1,4 @@
+rootProject.name = 'spdu2021'
+
+include 'Kassa:console-app'
+include 'Kassa:domain'
