@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    jdbc-url: jdbc:postgresql://localhost:5432/menshiy_evgeniy
+    username: postgres
+    password: root
+    pool-size: 30
+    set-connection-timeout: 1000
+  thymeleaf:
+    cache: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
