@@ -18,7 +18,7 @@ public class Event {
     private String name;
 
     @Size(min = 5,max = 5000)
-    private Double places;
+    private Integer places;
 
     @Size(min = 1)
     private Integer price;
@@ -33,7 +33,7 @@ public class Event {
         return name;
     }
 
-    public Double getPlaces() {
+    public Integer getPlaces() {
         return places;
     }
 
@@ -53,7 +53,7 @@ public class Event {
         this.name = name;
     }
 
-    public void setPlaces(Double places) {
+    public void setPlaces(Integer places) {
         this.places = places;
     }
 
