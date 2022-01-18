@@ -57,22 +57,21 @@ public class AutoEventsReader implements EventsReader {
     }
 
     private int randomPlaces() {
-        return random.nextInt(100);
+        return random.nextInt(99) + 1;
     }
 
     private int randomPrice() {
-        return random.nextInt(100);
+        return random.nextInt(99) + 1;
     }
 
     private LocalDateTime randomDate() {
         LocalDate start = LocalDate.now();
-        LocalDate randomDate = start.plusDays(new Random().nextInt((int) 1000));
+        LocalDate randomDate = start.plusDays(new Random().nextInt(1000));
         LocalTime time = LocalTime.of(random.nextInt(24), random.nextInt(60), 0);
-        LocalDateTime date = LocalDateTime.of(randomDate, time).truncatedTo(ChronoUnit.SECONDS);
-        return date;
+        return LocalDateTime.of(randomDate, time).truncatedTo(ChronoUnit.SECONDS);
     }
 
     private int randomEventsCount() {
-        return random.nextInt(10);
+        return random.nextInt(9) + 1;
     }
 }

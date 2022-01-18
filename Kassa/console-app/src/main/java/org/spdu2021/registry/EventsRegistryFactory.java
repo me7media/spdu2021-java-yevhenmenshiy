@@ -1,5 +1,6 @@
 package org.spdu2021.registry;
 
+import org.spdu2021.registry.service.SortServiceImpl;
 import org.spdu2021.registry.ui.auto.AutoEventsReader;
 import org.spdu2021.registry.ui.auto.AutoSalesReader;
 
@@ -12,7 +13,9 @@ public class EventsRegistryFactory {
                 new CommonEventsPrinter(),
 
                 new AutoSalesReader(),
-                new CommonSalesPrinter()
+                new CommonSalesPrinter(),
+
+                new SortServiceImpl()
                 );
     }
 }

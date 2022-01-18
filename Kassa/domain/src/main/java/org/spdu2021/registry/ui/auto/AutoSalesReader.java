@@ -49,27 +49,51 @@ public class AutoSalesReader implements SalesReader {
     @Override
     public List<Sale> readSales(Event event) {
         List<Sale> sales = new ArrayList<>();
-        makeRandomSales(sales, event);
+        int randomAutoSalesCount = randomAutoSalesCount();
+        try {
+            makeRandomSales(sales, event, randomAutoSalesCount);
+        } catch (Exception e) {
+            logger.log(e.getMessage() + " for event: " + event.getName());
+        }
         return sales;
     }
 
-    private void makeRandomSales(List<Sale> sales, Event event) {
+    private void makeRandomSales(List<Sale> sales, Event event, int randomAutoSalesCount) throws Exception {
 
-        int placesCount = randomPlacesCount(event);
-        LocalDateTime date = LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS);
-        Sale sale = new Sale(
+        int eventPlacesLeft = event.getPlaces();
+
+        for (int i = 0; i < randomAutoSalesCount; i++) {
+
+            if (eventPlacesLeft <= 0) throw new Exception("No places left");
+
+            int randomPlacesCount = randomPlacesCount(eventPlacesLeft);
+
+            if (randomPlacesCount > eventPlacesLeft) {
+                randomPlacesCount = eventPlacesLeft;
+            }
+            eventPlacesLeft = eventPlacesLeft - randomPlacesCount;
+
+            sales.add(createSale(event, randomPlacesCount));
+        }
+    }
+
+    private Sale createSale(Event event, int randomPlacesCount) {
+        return new Sale(
                 event,
-                placesCount,
-                placesCount * event.getPrice(),
-                date,
+                randomPlacesCount,
+                randomPlacesCount * event.getPrice(),
+                LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS),
                 randomFirstName(),
                 randomLastName()
         );
-        sales.add(sale);
     }
 
-    private int randomPlacesCount(Event event) {
-        return random.nextInt(event.getPlaces());
+    private int randomAutoSalesCount() {
+        return random.nextInt(9) + 1;
+    }
+
+    private int randomPlacesCount(int eventPlacesLeft) {
+        return random.nextInt(eventPlacesLeft) + 1;
     }
 
     private String randomLastName() {
