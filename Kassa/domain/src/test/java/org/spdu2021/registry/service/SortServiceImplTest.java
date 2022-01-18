@@ -39,7 +39,6 @@ public class SortServiceImplTest {
         expectedEvents.add(events.get(2));
         expectedEvents.add(events.get(1));
 
-
         this.sortService.eventDateSorter(sortEvents);
 
         assertEquals(sortEvents, expectedEvents);
@@ -68,7 +67,6 @@ public class SortServiceImplTest {
         sales.add(new Sale(events.get(0), 3, 20, now, "Me", "Ow"));
 
         this.sortService.eventNameSorter(sales);
-
 
         List<Sale> expectedSales = new ArrayList<>();
         expectedSales.add(new Sale(events.get(0), 3, 20, now, "Me", "Ow"));
