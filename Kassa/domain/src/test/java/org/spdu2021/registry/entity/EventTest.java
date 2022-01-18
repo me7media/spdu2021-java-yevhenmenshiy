@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import static org.testng.Assert.*;
 
 public class EventTest {
-    public Event event;
+    private Event event;
 
     private final int places = 100;
     private final int price = 99;

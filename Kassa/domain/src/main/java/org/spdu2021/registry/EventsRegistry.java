@@ -52,9 +52,9 @@ public class EventsRegistry {
             sales.addAll(this.salesReader.readSales(event));
         }
 
-        Map<String, List<Sale>> map = this.sortService.groupByCustomer(sales);
+        Map<String, List<Sale>> salesGroupedByCustomer = this.sortService.groupByCustomer(sales);
 
-        map.forEach((customerName, salesList) -> {
+        salesGroupedByCustomer.forEach((customerName, salesList) -> {
             this.sortService.eventNameSorter(salesList);
             this.salesPrinter.printSales(salesList, customerName);
         });

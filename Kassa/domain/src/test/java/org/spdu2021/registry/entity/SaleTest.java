@@ -8,8 +8,8 @@ import java.time.LocalDateTime;
 import static org.testng.Assert.*;
 
 public class SaleTest {
-    public Sale sale;
-    public Event event;
+    private Sale sale;
+    private Event event;
 
     private final int places = 1;
     private final int sales = 100;
