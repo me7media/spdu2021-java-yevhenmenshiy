@@ -4,6 +4,7 @@ import org.spdu2021.registry.web.entity.Event;
 import org.spdu2021.registry.web.repository.EventRepository;
 import org.spdu2021.registry.web.exception.EntityException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,5 +38,9 @@ public class EventService {
 
     public List<Event> getAll() {
         return eventRepository.findAll();
+    }
+
+    public List<Event> getAllSortByDate() {
+        return eventRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
     }
 }

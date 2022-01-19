@@ -100,6 +100,10 @@ public class Sale {
         this.customerLastName = customerLastName;
     }
 
+    public String getCustomerFullName(){
+        return customerFirstName + " " + customerLastName;
+    }
+
     @Override
     public String toString() {
         return "Sale{" +
