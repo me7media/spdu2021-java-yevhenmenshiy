@@ -2,9 +2,13 @@ package org.spdu2021.registry.web.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table
 @Entity(name = "event")
@@ -17,10 +21,11 @@ public class Event {
     @Size(min = 5, max = 25)
     private String name;
 
-    @Size(min = 5,max = 5000)
+    @Min(5)
+    @Max(5000)
     private Integer places;
 
-    @Size(min = 1)
+    @Min(1)
     private Integer price;
 
     private LocalDateTime date;

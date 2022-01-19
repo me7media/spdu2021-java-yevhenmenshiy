@@ -2,7 +2,9 @@ package org.spdu2021.registry.web.controller;
 
 import org.spdu2021.registry.logger.Logger;
 import org.spdu2021.registry.logger.LoggerFactory;
+import org.spdu2021.registry.web.entity.Event;
 import org.spdu2021.registry.web.entity.Sale;
+import org.spdu2021.registry.web.service.EventService;
 import org.spdu2021.registry.web.service.SaleService;
 import org.spdu2021.registry.web.service.ValidationErrorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,7 @@ public class SaleController {
         ResponseEntity errors = validationService.validate(result);
         if (errors != null) return errors;
         Sale saleSaved = saleService.createOrUpdate(sale);
-        return new ResponseEntity<Sale>(saleSaved, HttpStatus.CREATED);
+        return new ResponseEntity<Sale>(sale, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

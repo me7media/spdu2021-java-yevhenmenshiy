@@ -1,10 +1,10 @@
 package org.spdu2021.registry.web.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 
 @Table
@@ -15,15 +15,19 @@ public class Sale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "event_id")
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "event_id", nullable = false, insertable = false, updatable = false)
     private Event event;
 
-    @Size(min = 5,max = 5000)
+    @JsonProperty("event_id")
+    private Long event_id;
+
+    @Min(1)
+    @Max(5000)
     private Integer places;
 
-    @Size(min = 1)
+    @Min(1)
     private Integer totalPrice;
 
     private LocalDateTime saleDate;
@@ -48,7 +52,11 @@ public class Sale {
         return event;
     }
 
-    public void setEvent(Event event) {
+    public Long getEvent_id() {
+        return event_id;
+    }
+
+    public void setEvent(Event event){
         this.event = event;
     }
 
@@ -97,6 +105,7 @@ public class Sale {
         return "Sale{" +
                 "id=" + id +
                 ", event=" + event +
+                ", event_id=" + event_id +
                 ", places=" + places +
                 ", totalPrice=" + totalPrice +
                 ", saleDate=" + saleDate +

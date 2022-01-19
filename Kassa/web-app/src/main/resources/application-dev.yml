@@ -5,6 +5,8 @@ spring:
     password: password
     pool-size: 30
     set-connection-timeout: 1000
+  h2:
+    console.enabled: true
   thymeleaf:
     cache: false
   flyway:

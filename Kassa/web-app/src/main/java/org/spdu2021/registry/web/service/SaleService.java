@@ -14,6 +14,9 @@ public class SaleService {
     @Autowired
     private SaleRepository saleRepository;
 
+    @Autowired
+    private EventService eventService;
+
     public Sale getById(Long id){
         Optional<Sale> sale = saleRepository.findById(id);
         if(sale.isPresent()){
@@ -22,6 +25,9 @@ public class SaleService {
         throw new EntityException("Sale with "+id+" does not exists!");
     }
     public Sale createOrUpdate(Sale sale) {
+        if(sale.getEvent_id() != null && sale.getEvent() == null){
+            sale.setEvent(eventService.getById(sale.getEvent_id()));
+        }
         saleRepository.save(sale);
         return sale;
     }
