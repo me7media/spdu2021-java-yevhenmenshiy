@@ -1,11 +1,10 @@
 package org.spdu2021.registry.ui.auto;
 
-import org.spdu2021.registry.EventsRegistry;
 import org.spdu2021.registry.entity.Event;
 import org.spdu2021.registry.entity.Sale;
 import org.spdu2021.registry.logger.Logger;
 import org.spdu2021.registry.logger.LoggerFactory;
-import org.spdu2021.registry.ui.SalesReader;
+import org.spdu2021.registry.ui.interfaces.SalesReader;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

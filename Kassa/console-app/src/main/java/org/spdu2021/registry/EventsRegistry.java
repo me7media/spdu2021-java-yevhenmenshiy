@@ -5,10 +5,12 @@ import org.spdu2021.registry.entity.Sale;
 import org.spdu2021.registry.logger.Logger;
 import org.spdu2021.registry.logger.LoggerFactory;
 import org.spdu2021.registry.service.SortService;
-import org.spdu2021.registry.ui.*;
+import org.spdu2021.registry.ui.interfaces.EventsPrinter;
+import org.spdu2021.registry.ui.interfaces.EventsReader;
+import org.spdu2021.registry.ui.interfaces.SalesPrinter;
+import org.spdu2021.registry.ui.interfaces.SalesReader;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class EventsRegistry {

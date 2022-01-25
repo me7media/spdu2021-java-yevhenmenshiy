@@ -1,7 +1,7 @@
-package org.spdu2021.registry;
+package org.spdu2021.registry.ui.common;
 
 import org.spdu2021.registry.entity.Event;
-import org.spdu2021.registry.ui.EventsPrinter;
+import org.spdu2021.registry.ui.interfaces.EventsPrinter;
 
 import java.util.List;
 

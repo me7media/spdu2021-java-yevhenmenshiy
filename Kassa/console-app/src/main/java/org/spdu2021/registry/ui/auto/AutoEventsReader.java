@@ -1,7 +1,7 @@
 package org.spdu2021.registry.ui.auto;
 
 import org.spdu2021.registry.entity.Event;
-import org.spdu2021.registry.ui.EventsReader;
+import org.spdu2021.registry.ui.interfaces.EventsReader;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -66,7 +66,7 @@ public class AutoEventsReader implements EventsReader {
 
     private LocalDateTime randomDate() {
         LocalDate start = LocalDate.now();
-        LocalDate randomDate = start.plusDays(new Random().nextInt(1000));
+        LocalDate randomDate = start.plusDays(random.nextInt(1000));
         LocalTime time = LocalTime.of(random.nextInt(24), random.nextInt(60), 0);
         return LocalDateTime.of(randomDate, time).truncatedTo(ChronoUnit.SECONDS);
     }

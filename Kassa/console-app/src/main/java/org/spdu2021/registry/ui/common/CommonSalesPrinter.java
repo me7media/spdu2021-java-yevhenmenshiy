@@ -1,11 +1,11 @@
-package org.spdu2021.registry;
+package org.spdu2021.registry.ui.common;
 
 import static java.lang.System.out;
 
 import java.util.List;
 
 import org.spdu2021.registry.entity.Sale;
-import org.spdu2021.registry.ui.SalesPrinter;
+import org.spdu2021.registry.ui.interfaces.SalesPrinter;
 
 
 public class CommonSalesPrinter implements SalesPrinter {

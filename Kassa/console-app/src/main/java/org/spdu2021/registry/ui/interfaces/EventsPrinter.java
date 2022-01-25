@@ -1,4 +1,4 @@
-package org.spdu2021.registry.ui;
+package org.spdu2021.registry.ui.interfaces;
 
 import org.spdu2021.registry.entity.Event;
 

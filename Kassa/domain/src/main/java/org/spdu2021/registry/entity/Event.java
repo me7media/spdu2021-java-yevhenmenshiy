@@ -52,7 +52,7 @@ public class Event implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, places, date);
+        return Objects.hash(name, places, price, date);
     }
 
     @Override

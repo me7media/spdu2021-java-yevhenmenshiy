@@ -71,11 +71,10 @@ public class Sale {
         return Objects.hash(event, places, totalPrice, saleDate, customerFirstName, customerLastName);
     }
 
-
     @Override
     public String toString() {
         return "Place{" +
-                "Event name='" + event.getName() + '\'' +
+                "Event='" + event + '\'' +
                 ", places=" + places +
                 ", totalPrice=" + totalPrice +
                 ", Customer =" + getCustomerFullName() +
